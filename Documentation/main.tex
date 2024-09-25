@@ -1,5 +1,10 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx,datetime,hyperref} % Required for inserting images
+
+\newcommand{\setlasteditor}[1]{\gdef\lasteditor{#1}}
+\newcommand{\lastedited}{%
+    \vspace{1mm}\small{Last edited by: \lasteditor }\vspace{3mm}
+}
 
 \title{ISTA ASTRO SOFTWARE}
 \author{Aayush Desai}
@@ -9,11 +14,24 @@
 
 \maketitle
 
-\section*{Introduction}
 
-Hello world. This is the ISTA SOFTWARE PAGE, which will hopefully have all the neat tools and tricks the department would have developed over the years. 
+\tableofcontents
+\newpage
+\section*{Introduction}
+\setlasteditor{Aayush Desai}
+\lastedited
+
+Hello world. This is the ISTA SOFTWARE PAGE, which will hopefully have all the neat tools and tricks the department would have developed over the years. The repository is maintained by Aayush Desai for the time being, and is open to contributions from anyone who would like to add to it.
 
 \section{Sharing Repositories via GIT}
+\setlasteditor{Aayush Desai}
+\lastedited
+
 \section{MESA on Cluster}
+\setlasteditor{Aayush Desai}
+\lastedited
+
+\section{Working on GIT}
+
 
 \end{document}

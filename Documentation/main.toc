@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Sharing Repositories via GIT}{2}{section.1}%
+\contentsline {section}{\numberline {2}MESA on Cluster}{2}{section.2}%
+\contentsline {section}{\numberline {3}Working on GIT}{2}{section.3}%
