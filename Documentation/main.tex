@@ -1,6 +1,14 @@
 \documentclass{article}
 \usepackage{graphicx,datetime,hyperref} % Required for inserting images
 
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={170mm,257mm},
+left=20mm,
+top=20mm,
+}
+
 \newcommand{\setlasteditor}[1]{\gdef\lasteditor{#1}}
 \newcommand{\lastedited}{%
     \vspace{1mm} {\footnotesize Last edited by: \lasteditor} \vspace{3mm}
@@ -38,8 +46,82 @@ Here you can find access to example scripts that are group agnostic (mostly). Sh
 \lastedited
 
 \section{MESA on Cluster}
-\setlasteditor{Aayush Desai}
+\setlasteditor{Lukas Einramhof}
 \lastedited
+IT has installed \texttt{MESA} on the cluster. In order to get \texttt{MESA} running on the cluster, a few steps have to be done to ensure \texttt{MESA} is running correctly.
+
+A full template for a \texttt{slurm} script is available in this repository under \texttt{Templates/run.sh}.\\
+
+First the (current version of the) \texttt{MESA} module has to be loaded via
+\begin{verbatim}
+    module load mesastar/23.05.1
+\end{verbatim}
+where '23.05.1' is the current (and only) version of \texttt{MESA} installed on the cluster. 
+If other versions are needed you need to write an email to IT with the specific version that they should install.
+
+To get a template directory for your \texttt{MESA} run (if you don't have one yourself) you can copy the \texttt{\$MESA\_DIR/star/work/} directory into your cluster directory.
+Note that the \texttt{\$MESA\_DIR} command is only available after loading the \texttt{MESA} module.
+
+One big caveate with \texttt{MESA} installed on the cluster is, that the default cache folders in the \texttt{\$MESA\_DIR} can't be written to.
+Thus, for every run you have to define a custom cache folder in your personal cluster folder. Furthermore, each \texttt{MESA} run has to have its own cache folder. This is especially important if you run array jobs.
+To set up a custom cache you will have to run
+\begin{verbatim}
+    mkdir path_to_custom_cache_dir
+    export MESA_CACHES_DIR=path_to_custom_cache_dir
+\end{verbatim}
+The first command creates a custom cache directory at some specified path, and the second command then sets the \texttt{MESA\_CACHES\_DIR} flag to the corresponding directory which tells \texttt{MESA} where to put the cache files.
+Since each \texttt{MESA} run needs its own cache directory, I would suggest putting the caches folder directly into the directory where the specific \texttt{MESA} run is setup. For example create a folder structure like
+\begin{verbatim}
+    work/
+    |
+    +-- make/
+    +-- src/
+    +-- caches/
+    +-- clean
+    +-- mk
+    +-- rn
+    +-- ...
+\end{verbatim}
+and then add the command
+\begin{verbatim}
+    export MESA_CACHES_DIR=work_dir/caches
+\end{verbatim}
+into your \texttt{slurm} script.
+
+With all this setup, there should be no issues in running \texttt{MESA} on the cluster.
+
+
+
+\section{Tips for working on the Cluster}
+\setlasteditor{Lukas Einramhof}
+\lastedited
+
+\subsection{Making your setup more efficient to get time on the cluster faster}
+After you have run a job for the first time you can check how much CPU and memory it used to then tailor your next run to use just enough resources. This will let your next job run earlier since it uses less resources.
+To do that run
+\begin{verbatim}
+    module load seff
+    seff JOB_ID
+\end{verbatim}
+This will give you output similar to
+\begin{verbatim}
+    ...
+    Job ID: 23693144
+    Array Job ID: 23693144_9
+    Cluster: istscicomp
+    User/Group: leinramh/bugnegrp
+    State: COMPLETED (exit code 0)
+    Nodes: 1
+    Cores per node: 4
+    CPU Utilized: 12:13:44
+--> CPU Efficiency: 95.75% of 12:46:16 core-walltime
+    Job Wall-clock time: 03:11:34
+    Memory Utilized: 15.75 GB
+--> Memory Efficiency: 49.21% of 32.00 GB
+\end{verbatim}
+With the \texttt{CPU Efficiency} and the \texttt{Memory Efficiency} you can adjust how much memory and cpus you ask for in the next run, to get faster priority (unless you need more resources of course).
+In the example above I could have asked for half the amount of memory.
+    
 
 \section{Working on GIT}
 
