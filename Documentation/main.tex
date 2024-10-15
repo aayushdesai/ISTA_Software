@@ -110,6 +110,7 @@ With all this setup, there should be no issues in running \texttt{MESA} on the c
 \subsection{Making your setup more efficient to get time on the cluster faster}
 \setlasteditor{Lukas Einramhof}
 \lastedited
+\noindent
 After you have run a job for the first time you can check how much CPU and memory it used to then tailor your next run to use just enough resources. This will let your next job run earlier since it uses less resources.
 To do that run
 \begin{verbatim}
@@ -138,6 +139,7 @@ In the example above I could have asked for half the amount of memory.
 \subsection{Running on the head vs. submitting via slurm scripts}
 \setlasteditor{Aayush Desai}
 \lastedited
+\noindent
 As a general rule of thumb, it is always better to submit jobs via slurm scripts, rather than running them on the head node. This is because the head node is a shared resource, and running jobs on it can slow down the system for everyone else. Furthermore, running jobs on the head node can lead to the job being killed if it uses too many resources or whenever you logout. 
 \newline
 \newline
