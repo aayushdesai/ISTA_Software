@@ -2,4 +2,5 @@
 \contentsline {section}{\numberline {2}MESA on Cluster}{2}{section.2}%
 \contentsline {section}{\numberline {3}Tips for working on the Cluster}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Making your setup more efficient to get time on the cluster faster}{3}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Working on GIT}{3}{section.4}%
+\contentsline {subsection}{\numberline {3.2}Running on the head vs. submitting via slurm scripts}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Working on GIT}{4}{section.4}%

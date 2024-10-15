@@ -126,6 +126,23 @@ In the example above I could have asked for half the amount of memory.
 \subsection{Running on the head vs. submitting via slurm scripts}
 \setlasteditor{Aayush Desai}
 \lastedited
+As a general rule of thumb, it is always better to submit jobs via slurm scripts, rather than running them on the head node. This is because the head node is a shared resource, and running jobs on it can slow down the system for everyone else. Furthermore, running jobs on the head node can lead to the job being killed if it uses too many resources or whenever you logout. 
+\newline
+\newline
+There are really helpful slurm scripts on the IT page, which can be found at: \href{https://it.pages.ist.ac.at/docs/hpc-cluster/hpc-handbook/composing-a-slurm-script/}{here}. These scripts can be used to submit jobs to the cluster, and can be modified to suit your needs.
+\newpage
+Jobs that could be run on the head node:
+
+\begin{enumerate}
+    \item Small jobs that require less than 5 minutes to run.
+    \item Jobs that require less than 1GB of memory.
+    \item Jobs that require less than 1 core.
+    \item File IO operations: eg copying files, moving files, etc\footnote{If you are running such a job on the head node, and you would like to move it to the cluster, you can use the \texttt{screen} command. This command allows you to run a job in the background, and can be detached from the terminal. This way, you can run the job on the head node, and then detach it and move it to the cluster. Please do not misuse this to run bigger jobs on the headnode. Lets try to respect the \textit{shared} resource}.
+\end{enumerate}
+
+
+
+
 
 
     
