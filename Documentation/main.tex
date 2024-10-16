@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx,datetime,hyperref} % Required for inserting images
+\usepackage{graphicx,datetime,hyperref,verbatim} % Required for inserting images
 
 \usepackage{geometry}
 \geometry{
@@ -135,7 +135,7 @@ This will give you output similar to
 With the \texttt{CPU Efficiency} and the \texttt{Memory Efficiency} you can adjust how much memory and cpus you ask for in the next run, to get faster priority (unless you need more resources of course).
 In the example above I could have asked for half the amount of memory.
 
-\subsection{Running on the head vs. submitting via slurm scripts}
+\subsection{Running on the head node vs. submitting via slurm scripts}
 \setlasteditor{Aayush Desai}
 \lastedited
 \noindent
@@ -152,10 +152,8 @@ Jobs that could be run on the head node:
     \item Jobs that require less than 1 core.
     \item File IO operations: eg copying files, moving files, etc\footnote{If you are running such a job on the head node, and you would like to move it to the cluster, you can use the \texttt{screen} command. This command allows you to run a job in the background, and can be detached from the terminal. This way, you can run the job on the head node, and then detach it and move it to the cluster. Please do not misuse this to run bigger jobs on the headnode. Lets try to respect the \textit{shared} resource}.
 \end{enumerate}
-
-
-
-
+\noindent
+From personal experience (as of October 2024), I prefer to use the \texttt{eta293} head node as my default login node (found at \texttt{$<$username$>$}@eta293.hpc.ista.ac.at). It is the largest head-node (~300 cpu cores and 1TB of memory).
 
 
     
