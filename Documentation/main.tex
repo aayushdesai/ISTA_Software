@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx,datetime,hyperref,verbatim} % Required for inserting images
+\usepackage{graphicx,datetime,hyperref,verbatim,caption,subcaption} % Required for inserting images
 
 \usepackage{geometry}
 \geometry{
@@ -219,6 +219,42 @@ Jobs that could be run on the head node:
 From personal experience (as of October 2024), I prefer to use the \texttt{eta293} head node as my default login node (found at \texttt{$<$username$>$}@eta293.hpc.ista.ac.at). It is the largest head-node (~300 cpu cores and 1TB of memory).
 
 \section{Working on GIT}
+\newpage %remove when section is added
+\section{Installing Printer}
+\setlasteditor{Aayush Desai}
+\lastedited
+\noindent
+For most Operating Systems and Printers please refer to this \href{https://it.pages.ist.ac.at/docs/it-documentation/printing/}{link} and the links within. The full printer model name can be found atop the printer you are trying to install.
+
+For linux users specifically; follow the steps mentioned on the website. 
+Follow till step 2 (i.e. "On the “New Printer” window ....").
+\newline
+For step 3, try to find the printer (model name) you are looking for using the instructions on the website. If you can't find it (Eg the "Ricoh IM C3510"/P2417103 on 3rd floor Moonstone), then:
+
+\begin{enumerate}
+    \item select the "Search for a printer driver to download" option (see Fig.\ref{fig:sub2}). 
+    \item Put in the full printer model name in "Make and Model".
+    \item Once the driver is found, select it and click "Forward".
+    \item From here on, follow the instructions on the website.
+\end{enumerate} 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{Figures/Printer_1.png}
+        \caption{Step 3}
+        \label{fig:sub1}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{Figures/Printer_2.png}
+        \caption{Step 4}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Installing Printer}
+    \label{fig:test}
+\end{figure}
 
 
 
