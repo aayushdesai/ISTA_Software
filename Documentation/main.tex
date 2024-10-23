@@ -106,6 +106,68 @@ With all this setup, there should be no issues in running \texttt{MESA} on the c
 \setlasteditor{Lukas Einramhof}
 \lastedited
 
+\subsection{Setting up your environment/Transitioning from Anaconda to Miniforge3}
+\setlasteditor{Ivan Kramerenko}
+\lastedited
+Owing to the recent decision of Anaconda to charge a licence fee per user to institutions, the Astro department has decided to transition from Anaconda to Miniforge3. Miniforge3 is a minimal installer for conda, which is a package manager that can be used to install Python packages. The following steps can be used to transition from Anaconda to Miniforge3.
+\begin{enumerate}
+    \item Uninstall \href{https://docs.anaconda.com/anaconda/install/uninstall/}{Anaconda}
+    \begin{enumerate}
+        \item  (Optional) Backup your conda environments -- run the following commands for each enivornment you want to create a backup for (e.g., some useful environment with many packages installed).
+        \begin{verbatim}
+        conda activate environment-name
+        conda env export > environment-name.yml
+        \end{verbatim}
+
+        \item (Optional) Backup your `.condarc' file if you have it in your home directory.
+        \begin{verbatim}
+            cp ~/.condarc ~/.condarc.bkp
+        \end{verbatim}
+        \item Remove conda initialization scripts from the terminal shell profiles.
+
+        \begin{verbatim}
+            conda activate
+            conda init --reverse --all
+        \end{verbatim}
+
+        \item Remove the Anaconda directory.
+        \begin{verbatim}
+            rm -rf ~/anaconda3
+        \end{verbatim}
+
+        \item If you're using `\textbf{miniconda}' instead, remove the `\textbf{miniconda3}' directory.
+        \begin{verbatim}
+            rm -rf ~/miniconda
+        \end{verbatim}
+        \item Remove the hidden `\textbf{.conda}' file and the `\textbf{.conda}' directory.
+        \begin{verbatim}
+            rm -rf ~/.condarc ~/.conda
+        \end{verbatim}
+        \item Restart the terminal
+    \end{enumerate}
+    \item 2. Download and install Miniforge3 (https://github.com/conda-forge/miniforge)
+    \begin{enumerate}
+        \item Download the installation script.
+        \begin{verbatim}
+        curl -L -O "https://github.com/conda-forge/miniforge/
+        releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+        \end{verbatim}
+        \item Run the installation script (run the command as is). Answer **yes** when asked "Do you wish to update your shell profile to automatically initialize conda?"
+        \begin{verbatim}
+            bash Miniforge3-$(uname)-$(uname -m).sh
+        \end{verbatim}
+        \item Restart the terminal
+        \item (Optional) Recreate your previous conda environments.
+        \begin{verbatim}
+            conda env create -f environment-name.yml
+        \end{verbatim}
+    \end{enumerate}
+    \item Use the standard `\textbf{conda create}' and `\textbf{conda install}' commands to create new environments and install Python packages. Note that `\textbf{conda-forge}' will be the new default channel used for package installation.
+\end{enumerate}
+
+\subsection{File Servers and Structuers}
+\setlasteditor{Aayush Desai}
+\lastedited
 \subsection{Making your setup more efficient to get time on the cluster faster}
 \setlasteditor{Lukas Einramhof}
 \lastedited
@@ -142,7 +204,7 @@ In the example above I could have asked for half the amount of memory.
 As a general rule of thumb, it is always better to submit jobs via slurm scripts, rather than running them on the head node. This is because the head node is a shared resource, and running jobs on it can slow down the system for everyone else. Furthermore, running jobs on the head node can lead to the job being killed if it uses too many resources or whenever you logout. 
 \newline
 \newline
-There are really helpful slurm scripts on the IT page, which can be found at: \href{https://it.pages.ist.ac.at/docs/hpc-cluster/hpc-handbook/composing-a-slurm-script/}{here}. These scripts can be used to submit jobs to the cluster, and can be modified to suit your needs.
+There are really helpful slurm scripts on the IT page, which can be found \href{https://it.pages.ist.ac.at/docs/hpc-cluster/hpc-handbook/composing-a-slurm-script/}{at}. These scripts can be used to submit jobs to the cluster, and can be modified to suit your needs.
 \newline
 \newline
 \noindent
@@ -156,10 +218,9 @@ Jobs that could be run on the head node:
 \noindent
 From personal experience (as of October 2024), I prefer to use the \texttt{eta293} head node as my default login node (found at \texttt{$<$username$>$}@eta293.hpc.ista.ac.at). It is the largest head-node (~300 cpu cores and 1TB of memory).
 
-
-    
-
 \section{Working on GIT}
+
+
 
 
 \end{document}
