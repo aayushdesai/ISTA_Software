@@ -168,6 +168,132 @@ Owing to the recent decision of Anaconda to charge a licence fee per user to ins
 \subsection{File Servers and Structuers}
 \setlasteditor{Aayush Desai}
 \lastedited
+\noindent
+Please check the \href{https://it.pages.ist.ac.at/docs/it-documentation/file-servers/}{IT Documentation} for information on file servers and structures. This will help you understand where to store your data, and how to access it from different locations.
+
+Briefly speaking there are 3(.5) main types of storage:
+\begin{enumerate}
+    \item Cluster Storage
+    \item Archival Storage
+    \item Standard Storage
+    \item (Optional) Cloud Stroage
+\end{enumerate}
+\subsubsection{Cluster Storage}
+\textbf{What is it?}
+\newline
+Whenever you login to any of the headnode via \texttt{$<$username$>$@headnode.hpc.ista.ac.at}, the immediate directory you are in is part of the cluster storage. By default your account is under your supervisor. By default each group has 5TB of storage, equally accessible by all members of the group.
+\\
+\textbf{The data here is not backed up at all and thus vulnerable to loss. Please make sure to back up your data to the archival storage or standard storage.}
+\\
+
+\noindent
+\textbf{Whats the point?}
+\newline
+Since compute jobs are run on the cluster, 
+\begin{enumerate}
+    \item It is easier to access the data from the cluster storage.
+    \item The special design of the system allows for quick ($\approx$ 10Gbps) data transfer between the cluster storage and the compute nodes. Thus it is ideal for data that needs to be processed/analysed.
+\end{enumerate}
+
+\noindent
+\textbf{Where is it?}
+\newline
+The cluster storage is located at \texttt{$<$username$>$@headnode.hpc.ista.ac}.
+\\
+
+\noindent
+\textbf{Example Data}
+\begin{enumerate}
+    \item Light Curves.
+    \item Full Frame images.
+    \item Simulation/evolution models.
+\end{enumerate}
+\subsubsection{Archival Storage}
+\textbf{What is it?}
+\newline
+The archival storage is a backup storage system that is used to store data that is important and needs to be backed up or data that has been analysed and no longer needs to be accessible quickly.
+\\
+\textbf{The data here is backed up and thus safe from loss.}
+\\
+
+\noindent
+\textbf{Whats the point?}
+\newline
+\begin{enumerate}
+    \item The data is backed up and thus safe from loss.
+    \item The data is not accessible quickly, and thus is ideal for data that is not needed for immediate analysis.
+    \item Frees up space on the Cluster Storage.
+    \item The data can be accessed from anywhere on the IST  (including VPN access).
+    \item The data can be accessed from the cluster.
+    \item Cheaper? (Yet to be confirmed)
+\end{enumerate}
+
+\noindent
+\textbf{Where is it?}
+\newline
+One can access the archival storage in two ways:
+\begin{enumerate}
+    \item Via the cluster: 
+    \begin{enumerate}
+        \item Login to the headnode: \texttt{$<$username$>$@headnode.hpc.ista.ac}
+        \item The archival storage is located at \texttt{/archive3/group/}
+    \end{enumerate}
+    \item Mapping the drives on your local \href{https://it.pages.ist.ac.at/docs/it-documentation/fileservers/fileshare/}{machine}
+\end{enumerate}
+
+\noindent
+\textbf{Example Data}
+\begin{enumerate}
+    \item Everything on the cluster storage.
+    \item Data/Analysis that has been published.
+\end{enumerate}
+
+\subsubsection{Standard Storage}
+\textbf{What is it?}
+\newline
+Consider it like ISTAs version of google drive, but for your group i.e. everything there can be accessed by everyone in that group.
+\\
+\textbf{The data is backed up daily and available for 1 year.}
+\\
+
+\noindent
+\textbf{Whats the point?}
+\newline
+\begin{enumerate}
+    \item Points 1-4 from Archival Storage.
+    \item Accessible to entire group.
+    \item If running low on device storage, a good option to store personal files temporarily. 
+    \item An additional advantage is that if you are using an ISTA issued machine, all data saved on it locally is available via the Standard storage (and vice versa) on other devices.
+\end{enumerate}
+
+\noindent
+\textbf{Where is it?}
+\newline
+\begin{enumerate}
+    \item Via the cluster: 
+    \begin{enumerate}
+        \item Login to the headnode: \texttt{$<$username$>$@headnode.hpc.ista.ac}
+        \item The archival storage is located at \texttt{/fs3/home/}
+    \end{enumerate}
+    \item Mapping the drives on your local \href{https://it.pages.ist.ac.at/docs/it-documentation/fileservers/fileshare/}{machine}
+\end{enumerate}
+
+\noindent
+\textbf{Example Data}
+\begin{enumerate}
+    \item Personal files (temporarily).
+    \item Group files.
+    \item Analysis files from the cluster (not raw data)
+    \begin{enumerate}
+        \item This is particularly helpful during Cluster maintenance, as you can still access your data.
+        \item Via the mapping ability, you can access the data from your local machine.
+    \end{enumerate}
+
+\end{enumerate}
+
+\subsubsection{Cloud Storage}
+Seafile is a cloud storage system that is available to all ISTA members. It is a secure and easy way to store and share files. The data is backed up and can be accessed from anywhere. For more information on Seafile, please refer to the \href{https://it.pages.ist.ac.at/how-to-safely-share-data/}{IST documentation}.
+
 \subsection{Making your setup more efficient to get time on the cluster faster}
 \setlasteditor{Lukas Einramhof}
 \lastedited
