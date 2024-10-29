@@ -72,7 +72,7 @@ If other versions are needed you need to write an email to IT with the specific 
 To get a template directory for your \texttt{MESA} run (if you don't have one yourself) you can copy the \texttt{\$MESA\_DIR/star/work/} directory into your cluster directory.
 Note that the \texttt{\$MESA\_DIR} command is only available after loading the \texttt{MESA} module.
 
-One big caveate with \texttt{MESA} installed on the cluster is, that the default cache folders in the \texttt{\$MESA\_DIR} can't be written to.
+One big caveat with \texttt{MESA} installed on the cluster is, that the default cache folders in the \texttt{\$MESA\_DIR} can't be written to.
 Thus, for every run you have to define a custom cache folder in your personal cluster folder. Furthermore, each \texttt{MESA} run has to have its own cache folder. This is especially important if you run array jobs.
 To set up a custom cache you will have to run
 \begin{verbatim}
@@ -80,7 +80,7 @@ To set up a custom cache you will have to run
     export MESA_CACHES_DIR=path_to_custom_cache_dir
 \end{verbatim}
 The first command creates a custom cache directory at some specified path, and the second command then sets the \texttt{MESA\_CACHES\_DIR} flag to the corresponding directory which tells \texttt{MESA} where to put the cache files.
-Since each \texttt{MESA} run needs its own cache directory, I would suggest putting the caches folder directly into the directory where the specific \texttt{MESA} run is setup. For example create a folder structure like
+Since each \texttt{MESA} run needs its own cache directory, I would suggest putting the caches folder directly into the directory where the specific \texttt{MESA} run is set up. For example, create a folder structure like
 \begin{verbatim}
     work/
     |
@@ -115,7 +115,7 @@ Owing to the recent decision of Anaconda to charge a licence fee per user to ins
 \begin{enumerate}
     \item Uninstall \href{https://docs.anaconda.com/anaconda/install/uninstall/}{Anaconda}
     \begin{enumerate}
-        \item  (Optional) Backup your conda environments -- run the following commands for each enivornment you want to create a backup for (e.g., some useful environment with many packages installed).
+        \item  (Optional) Backup your conda environments -- run the following commands for each environment you want to create a backup for (e.g., some useful environment with many packages installed).
         \begin{verbatim}
         conda activate environment-name
         conda env export > environment-name.yml
@@ -154,7 +154,7 @@ Owing to the recent decision of Anaconda to charge a licence fee per user to ins
         curl -L -O "https://github.com/conda-forge/miniforge/
         releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
         \end{verbatim}
-        \item Run the installation script (run the command as is). Answer **yes** when asked "Do you wish to update your shell profile to automatically initialize conda?"
+        \item Run the installation script (run the command as is). Answer **yes** when asked, "Do you wish to update your shell profile to initialize conda automatically?"
         \begin{verbatim}
             bash Miniforge3-$(uname)-$(uname -m).sh
         \end{verbatim}
@@ -181,7 +181,7 @@ Briefly speaking there are 3(.5) main types of storage:
     \item (Optional) Cloud Storage
 \end{enumerate}
 
-\texttt{Note: Storage on all the three systems is shared between the members of a group, and not equipartitioned. This means that if one member uses all the storage, the other members will not be able to use it. Please make sure to use the storage judiciously.}
+\texttt{Note: Storage on all three systems is shared between the group members, and not equipartitioned. This means that if one member uses all the storage, the other members will not be able to use it. Please make sure to use the storage judiciously.}
 \subsubsection{Cluster Storage}
 \textbf{What is it?}
 \newline
@@ -209,7 +209,7 @@ The cluster storage is located at \texttt{$<$username$>$@headnode.hpc.ista.ac}.
 \textbf{Example Data}
 \begin{enumerate}
     \item Light Curves.
-    \item Full Frame images.
+    \item Full Frame images (yet to be analysed).
     \item Simulation/evolution models.
 \end{enumerate}
 \subsubsection{Archival Storage}
@@ -265,9 +265,9 @@ Consider it like ISTAs version of google drive, but for your group i.e. everythi
 \newline
 \begin{enumerate}
     \item Points 1-4 from Archival Storage.
-    \item Accessible to entire group.
-    \item If running low on device storage, a good option to store personal files temporarily. 
-    \item An additional advantage is that if you are using an ISTA issued machine, all data saved on it locally is available via the Standard storage (and vice versa) on other devices.
+    \item Accessible to the entire group.
+    \item If running low on-device storage, a good option to store personal files temporarily. 
+    \item An additional advantage is that if you are using an ISTA-issued machine, all data saved on it locally is available via the Standard storage (and vice versa) on other devices.
 \end{enumerate}
 
 \noindent
@@ -324,7 +324,7 @@ This will give you output similar to
     Memory Utilized: 15.75 GB
 --> Memory Efficiency: 49.21% of 32.00 GB
 \end{verbatim}
-With the \texttt{CPU Efficiency} and the \texttt{Memory Efficiency} you can adjust how much memory and cpus you ask for in the next run, to get faster priority (unless you need more resources of course).
+With the \texttt{CPU Efficiency} and the \texttt{Memory Efficiency} you can adjust how much memory and CPUs you ask for in the next run, to get faster priority (unless you need more resources of course).
 In the example above I could have asked for half the amount of memory.
 
 \subsection{Running on the head node vs. submitting via slurm scripts}
