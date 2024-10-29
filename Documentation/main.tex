@@ -180,6 +180,8 @@ Briefly speaking there are 3(.5) main types of storage:
     \item Standard Storage
     \item (Optional) Cloud Storage
 \end{enumerate}
+
+\texttt{Note: Storage on all the three systems is shared between the members of a group, and not equipartitioned. This means that if one member uses all the storage, the other members will not be able to use it. Please make sure to use the storage judiciously.}
 \subsubsection{Cluster Storage}
 \textbf{What is it?}
 \newline
@@ -227,7 +229,6 @@ The archival storage is a backup storage system that is used to store data that 
     \item Frees up space on the Cluster Storage.
     \item The data can be accessed from anywhere on the IST  (including VPN access).
     \item The data can be accessed from the cluster.
-    \item Cheaper? (Yet to be confirmed)
 \end{enumerate}
 
 \noindent
@@ -238,7 +239,7 @@ One can access the archival storage in two ways:
     \item Via the cluster: 
     \begin{enumerate}
         \item Login to the headnode: \texttt{$<$username$>$@headnode.hpc.ista.ac}
-        \item The archival storage is located at \texttt{/archive3/group/}
+        \item The archival storage is located at \texttt{/drives/archive/group (or /archive3/group/)}
     \end{enumerate}
     \item Mapping the drives on your local \href{https://it.pages.ist.ac.at/docs/it-documentation/fileservers/fileshare/}{machine}
 \end{enumerate}
@@ -248,6 +249,7 @@ One can access the archival storage in two ways:
 \begin{enumerate}
     \item Everything on the cluster storage.
     \item Data/Analysis that has been published.
+    \item Raw fits files.
 \end{enumerate}
 
 \subsubsection{Standard Storage}
@@ -275,7 +277,7 @@ Consider it like ISTAs version of google drive, but for your group i.e. everythi
     \item Via the cluster: 
     \begin{enumerate}
         \item Login to the headnode: \texttt{$<$username$>$@headnode.hpc.ista.ac}
-        \item The archival storage is located at \texttt{/fs3/home/}
+        \item The archival storage is located at \texttt{/drives/home (or /fs3/home/)}
     \end{enumerate}
     \item Mapping the drives on your local \href{https://it.pages.ist.ac.at/docs/it-documentation/fileservers/fileshare/}{machine}
 \end{enumerate}
