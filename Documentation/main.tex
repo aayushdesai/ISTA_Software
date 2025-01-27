@@ -327,7 +327,7 @@ This will give you output similar to
 With the \texttt{CPU Efficiency} and the \texttt{Memory Efficiency} you can adjust how much memory and CPUs you ask for in the next run, to get faster priority (unless you need more resources of course).
 In the example above I could have asked for half the amount of memory.
 
-\subsection{Running on the head node vs. submitting via slurm scripts}
+\subsection{Running on the head node vs. submitting via slurm scripts \label{headnode}}
 \setlasteditor{Aayush Desai}
 \lastedited
 \noindent
@@ -348,6 +348,35 @@ Jobs that could be run on the head node:
 \noindent
 From personal experience (as of October 2024), I prefer to use the \texttt{eta293} head node as my default login node (found at \texttt{$<$username$>$}@eta293.hpc.ista.ac.at). It is the largest head-node (~300 cpu cores and 1TB of memory).
 
+
+\subsection{Using salloc to get an interactive session}
+\setlasteditor{Aayush Desai}
+\lastedited
+\noindent
+Should you find yourself testing some code and needing to run it on the cluster, you can use the \texttt{salloc} command to get an interactive session on the cluster. This is particularly useful when you need to test code that requires more resources than the head node can (or should) provide (see \ref{headnode}).
+
+\texttt{salloc} performs the same way a slurm script would perform.
+\begin{enumerate}
+    \item You define the resources you need in a single line
+    \item It allocates resources for you.
+    \item You ssh into the allocated node.
+    \item You run the job.
+    \item Iterate
+\end{enumerate}
+\noindent
+This is more convenient than reserving a node as only the \textbf{PI can do the latter}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/salloc.png}
+    \caption{Example of salloc command}
+    \label{fig:salloc}
+\end{figure}
+\begin{verbatim}
+    salloc --ntasks=1 --cpus-per-task=4 --mem=8G --time=1:00:00
+\end{verbatim}
+
+If you are done early, please remember to \texttt{scancel} your job, else the job run for the entire duration of the entire time.
 \section{Working on GIT}
 \newpage %remove when section is added
 \section{Installing Printer}
